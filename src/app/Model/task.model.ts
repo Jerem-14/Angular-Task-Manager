@@ -1,14 +1,14 @@
+// src/app/model/task.model.ts
+
+import { TaskStatus } from './task-status.enum';
+
 export class Task {
-    constructor(
-      public titre: string,
-      public description: string,
-      public etat: Etat
-    ) {}
-  }
-  
-  export enum Etat {
-    EN_COURS = "En cours",
-    A_FAIRE = "À faire",
-    TERMINEE = "Terminée"
-  }
-  
+  constructor(
+    public title: string,
+    public description: string,
+    public status: TaskStatus,
+    public creation_date: Date
+  ) {}
+}
+
+export { TaskStatus };

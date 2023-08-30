@@ -1,19 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Task, Etat } from '../Model/task.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { TaskStatus } from '../model/task-status.enum';
+import { Task } from '../model/task.model';
+
 
 @Component({
   selector: 'app-task',
-  templateUrl: './task.component.html', 
-  styleUrls: ['./task.component.css']
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-@Input() task!: Task;
+  @Input() task!: Task;
+  
+  constructor(){
 
+  }
+  
   ngOnInit(): void {
-    this.task = new Task(
-      'Tâche 1',
-      'Description de la tâche 1',
-      Etat.EN_COURS
-    );
+    
   }
 }

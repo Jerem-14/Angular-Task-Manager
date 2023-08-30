@@ -1,16 +1,6 @@
-<p>task works!</p>
-
-
 <div>
-    <h2>{{ task.titre }}</h2>
+    <h2 [TextColorDirective]="task">{{ task.title }}</h2>
     <p>{{ task.description }}</p>
-    <p>État : {{ task.etat }}</p>
-</div>
-
-<!-- task.component.html -->
-directive
-<div appTextColor [appTextColor]="task.etat">
-    <h2>{{ task.titre }}</h2>
-    <p>{{ task.description }}</p>
-    <p>État : {{ task.etat }}</p>
+    <p>État : {{ task.status }}</p>
+    <p>Date de création : {{ task.creation_date | dateFormat }}</p>
 </div>

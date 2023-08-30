@@ -1,28 +1,36 @@
-// text-color.directive.ts
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
-import { Etat } from './Model/task.model';
+import { TaskStatus } from './model/task-status.enum';
+import { Task } from './model/task.model';
 
 @Directive({
-  selector: '[appTextColor]'
+  selector: '[TextColorDirective]'
 })
 export class TextColorDirective {
-  @Input('appTextColor') set appTextColor(etat: Etat) {
-    const color = this.getColorForEtat(etat);
-    this.renderer.setStyle(this.el.nativeElement, 'color', color);
-  }
+  @Input() TextColorDirective!: Task;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  private getColorForEtat(etat: Etat): string {
-    switch (etat) {
-      case Etat.EN_COURS:
-        return 'blue';
-      case Etat.A_FAIRE:
-        return 'red';
-      case Etat.TERMINEE:
-        return 'green';
-      default:
-        return 'black';
+  ngOnInit(): void {
+    if (this.TextColorDirective) {
+      const status = this.TextColorDirective.status;
+      let color = '';
+
+      switch (status) {
+        case TaskStatus.EN_COURS:
+          color = 'blue';
+          break;
+        case TaskStatus.A_FAIRE:
+          color = 'red';
+          break;
+        case TaskStatus.TERMINEE:
+          color = 'green';
+          break;
+        default:
+          color = 'black';
+          break;
+      }
+
+      this.renderer.setStyle(this.el.nativeElement, 'color', color);
     }
   }
 }
