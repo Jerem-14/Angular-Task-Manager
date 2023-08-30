@@ -1,3 +1,5 @@
+# Aubry Jeremy - Angular Débutant
+
 ## Mise en pratique - Environnement
 
 - NodeJs : v18.13.0
@@ -24,3 +26,5 @@ Lors de l'exectution de la commande ng build, on retrouve dans le dossier dist t
 - yarn -v : recup la version de yarn
 - npm run compodoc
 - npm run compodoc:serve
+
+lien github : https://github.com/Jerem-14/Angular-Task-Manager.git
